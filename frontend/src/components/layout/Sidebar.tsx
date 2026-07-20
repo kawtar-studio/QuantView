@@ -1,24 +1,41 @@
+import {
+    LayoutDashboard,
+    Globe,
+    TrendingUp,
+    Star,
+    Briefcase,
+    Search,
+    FileText,
+} from "lucide-react";
+
 const navigation = [
     {
         name: "Dashboard",
+        icon: LayoutDashboard,
     },
     {
         name: "Markets",
+        icon: Globe,
     },
     {
         name: "Stocks",
+        icon: TrendingUp,
     },
     {
         name: "Watchlist",
+        icon: Star,
     },
     {
         name: "Portfolio",
+        icon: Briefcase,
     },
     {
         name: "Screener",
+        icon: Search,
     },
     {
         name: "Research",
+        icon: FileText,
     },
 ];
 
@@ -33,25 +50,30 @@ const Sidebar = () => {
             </div>
 
             {/* Navigation */}
-
             <nav className="flex-1 p-4">
-                {navigation.map((item) => (
-                    <button
-                        key={item.name}
-                        className="w-full text-left px-4 py-3 rounded-lg text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
-                    >
-                        {item.name}
-                    </button>
-                ))}
+                {navigation.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                        <button
+                            key={item.name}
+                            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                        >
+                            <Icon size={20} />
+
+                            <span>{item.name}</span>
+                        </button>
+                    );
+                })}
             </nav>
 
-            {/* Footer */ }
-    <div className="p-4 border-t border-zinc-800">
-        <p className="text-sm text-zinc-500">
-            Version 1.0
-        </p>
-    </div>
-        </aside >
+            {/* Footer */}
+            <div className="p-4 border-t border-zinc-800">
+                <p className="text-sm text-zinc-500">
+                    Version 1.0
+                </p>
+            </div>
+        </aside>
     );
 };
 
