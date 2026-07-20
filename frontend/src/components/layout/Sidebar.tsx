@@ -1,33 +1,23 @@
 const Sidebar = () => {
     return (
-        <aside className="w-64 h-screen bg-[#0D1117] border-r border-[#1F2937]">
-            <div className="p-8">
-                <h1 className="text-2xl font-bold text-white">
-                    Quant<span className="text-cyan-400">View</span>
+        <aside className="w-64 h-screen bg-zinc-950 border-r border-zinc-800 flex flex-col">
+            {/* Logo */}
+            <div className="h-16 flex items-center px-6 border-b border-zinc-800">
+                <h1 className="text-xl font-bold text-white">
+                    QuantView
                 </h1>
             </div>
 
-            <nav className="px-4">
-                <ul className="space-y-2">
-                    {[
-                        "Dashboard",
-                        "Markets",
-                        "Stocks",
-                        "Watchlist",
-                        "Portfolio",
-                        "Research",
-                        "Screener",
-                        "Settings",
-                    ].map((item) => (
-                        <li
-                            key={item}
-                            className="px-4 py-3 rounded-lg text-gray-400 hover:bg-[#161B22] hover:text-white transition-all duration-200 cursor-pointer"
-                        >
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+            {/* Navigation */}
+            <nav className="flex-1 p-4">
             </nav>
+
+            {/* Footer */}
+            <div className="p-4 border-t border-zinc-800">
+                <p className="text-sm text-zinc-500">
+                    Version 1.0
+                </p>
+            </div>
         </aside>
     );
 };
