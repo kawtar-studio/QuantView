@@ -1,3 +1,27 @@
+const navigation = [
+    {
+        name: "Dashboard",
+    },
+    {
+        name: "Markets",
+    },
+    {
+        name: "Stocks",
+    },
+    {
+        name: "Watchlist",
+    },
+    {
+        name: "Portfolio",
+    },
+    {
+        name: "Screener",
+    },
+    {
+        name: "Research",
+    },
+];
+
 const Sidebar = () => {
     return (
         <aside className="w-64 h-screen bg-zinc-950 border-r border-zinc-800 flex flex-col">
@@ -9,16 +33,25 @@ const Sidebar = () => {
             </div>
 
             {/* Navigation */}
+
             <nav className="flex-1 p-4">
+                {navigation.map((item) => (
+                    <button
+                        key={item.name}
+                        className="w-full text-left px-4 py-3 rounded-lg text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                    >
+                        {item.name}
+                    </button>
+                ))}
             </nav>
 
-            {/* Footer */}
-            <div className="p-4 border-t border-zinc-800">
-                <p className="text-sm text-zinc-500">
-                    Version 1.0
-                </p>
-            </div>
-        </aside>
+            {/* Footer */ }
+    <div className="p-4 border-t border-zinc-800">
+        <p className="text-sm text-zinc-500">
+            Version 1.0
+        </p>
+    </div>
+        </aside >
     );
 };
 
