@@ -1,9 +1,14 @@
-import {
-    ArrowDownRight,
-    ArrowUpRight,
-} from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
-const watchlist = [
+interface WatchlistStock {
+    symbol: string;
+    name: string;
+    price: string;
+    change: string;
+    positive: boolean;
+}
+
+const watchlist: WatchlistStock[] = [
     {
         symbol: "AAPL",
         name: "Apple",
@@ -43,50 +48,46 @@ const watchlist = [
 
 const WatchlistPanel = () => {
     return (
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 shadow-lg">
-            <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-white">
+        <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-zinc-900/70 to-zinc-950/90 p-6 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+            <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-[#7C5CFF]/10 blur-3xl" />
+
+            <div className="relative mb-5 flex items-center justify-between">
+                <h2 className="text-[15px] font-semibold tracking-tight text-white">
                     Watchlist
                 </h2>
-
-                <span className="text-sm text-zinc-500">
+                <span className="text-xs font-medium text-zinc-500">
                     5 Assets
                 </span>
             </div>
 
-            <div className="space-y-4">
+            <div className="relative space-y-1.5">
                 {watchlist.map((stock) => (
                     <div
                         key={stock.symbol}
-                        className="flex items-center justify-between rounded-xl p-3 transition-colors hover:bg-zinc-800/60"
+                        className="flex items-center justify-between rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-white/[0.06] hover:bg-white/[0.03]"
                     >
                         <div>
-                            <h3 className="font-semibold text-white">
+                            <h3 className="text-sm font-semibold text-white">
                                 {stock.symbol}
                             </h3>
-
-                            <p className="text-sm text-zinc-500">
+                            <p className="mt-0.5 text-xs text-zinc-500">
                                 {stock.name}
                             </p>
                         </div>
 
                         <div className="text-right">
-                            <p className="font-semibold text-white">
+                            <p className="text-sm font-semibold text-white">
                                 {stock.price}
                             </p>
-
                             <div
-                                className={`mt-1 flex items-center justify-end gap-1 text-sm ${stock.positive
-                                        ? "text-emerald-400"
-                                        : "text-red-400"
+                                className={`mt-0.5 flex items-center justify-end gap-1 text-xs font-medium ${stock.positive ? "text-emerald-400" : "text-red-400"
                                     }`}
                             >
                                 {stock.positive ? (
-                                    <ArrowUpRight size={15} />
+                                    <ArrowUpRight size={13} />
                                 ) : (
-                                    <ArrowDownRight size={15} />
+                                    <ArrowDownRight size={13} />
                                 )}
-
                                 {stock.change}
                             </div>
                         </div>
