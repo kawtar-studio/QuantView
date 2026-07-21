@@ -4,6 +4,7 @@ import MarketCard from "../components/dashboard/MarketCard";
 import MarketOverviewChart from "../components/dashboard/MarketOverviewChart";
 import MarketBreadthChart from "../components/dashboard/MarketBreadthChart";
 import WatchlistPanel from "../components/dashboard/WatchlistPanel";
+import NewsPanel from "../components/dashboard/NewsPanel";
 
 const MainLayout = () => {
     return (
@@ -15,7 +16,7 @@ const MainLayout = () => {
 
                 <main className="flex-1 overflow-y-auto p-8">
 
-                    {/* Market Cards */}
+                    {/* Top Market Cards */}
                     <div className="grid grid-cols-4 gap-6">
 
                         <MarketCard
@@ -48,20 +49,22 @@ const MainLayout = () => {
 
                     </div>
 
-                    {/* Dashboard Content */}
+                    {/* Dashboard */}
                     <div className="mt-8 grid grid-cols-12 gap-6">
 
-                        {/* Left Section */}
+                        {/* Left */}
                         <div className="col-span-8">
                             <MarketOverviewChart />
                         </div>
 
-                        {/* Right Section */}
+                        {/* Right */}
                         <div className="col-span-4 space-y-6">
 
                             <MarketBreadthChart />
 
                             <WatchlistPanel />
+
+                            <NewsPanel />
 
                         </div>
 
