@@ -49,66 +49,84 @@ const navigation = [
 
 const Sidebar = () => {
     return (
-        <aside className="w-64 h-screen bg-zinc-950 border-r border-zinc-800 flex flex-col">
+        <aside className="relative flex h-screen w-[280px] flex-col border-r border-white/10 bg-[#0B0B0F]/90 backdrop-blur-2xl">
 
-            {/* Logo */}
-            <div className="h-18 flex items-center gap-3 px-6 border-b border-zinc-800">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#7C5CFF14,transparent_45%)]" />
 
-                <div className="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                    <LineChart size={22} className="text-white" />
+            <div className="relative flex h-24 items-center border-b border-white/10 px-7">
+                <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#8B72FF]/20 bg-gradient-to-br from-[#7C5CFF] to-[#5B3DFF] shadow-[0_0_35px_rgba(124,92,255,0.35)]">
+                        <LineChart size={22} className="text-white" />
+                    </div>
+
+                    <div>
+                        <h1 className="text-xl font-semibold tracking-tight text-white">
+                            QuantView
+                        </h1>
+
+                        <p className="mt-1 text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
+                            Financial Intelligence
+                        </p>
+                    </div>
                 </div>
-
-                <div>
-                    <h1 className="text-white text-lg font-bold tracking-tight">
-                        QuantView
-                    </h1>
-
-                    <p className="text-xs text-zinc-500">
-                        Financial Intelligence
-                    </p>
-                </div>
-
             </div>
 
-            {/* Navigation */}
-            <nav className="flex-1 p-3">
+            <nav className="relative flex-1 px-5 py-8">
+                <div className="mb-5 px-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-zinc-600">
+                    Workspace
+                </div>
 
-                {navigation.map((item) => {
+                <div className="space-y-2">
+                    {navigation.map((item) => {
+                        const Icon = item.icon;
 
-                    const Icon = item.icon;
+                        return (
+                            <button
+                                key={item.name}
+                                className={`group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-4 py-3.5 transition-all duration-300 ${item.active
+                                        ? "border border-[#7C5CFF]/25 bg-gradient-to-r from-[#7C5CFF]/20 to-transparent text-white shadow-[0_10px_40px_rgba(124,92,255,0.18)]"
+                                        : "border border-transparent text-zinc-400 hover:border-white/10 hover:bg-white/[0.03] hover:text-white"
+                                    }`}
+                            >
+                                {item.active && (
+                                    <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-[#7C5CFF]" />
+                                )}
 
-                    return (
-                        <button
-                            key={item.name}
-                            className={`relative mb-1 w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.active
-                                    ? "bg-zinc-900 text-white"
-                                    : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
-                                }`}
-                        >
-                            {item.active && (
-                                <div className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-blue-500" />
-                            )}
+                                <div
+                                    className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${item.active
+                                            ? "bg-[#7C5CFF]/20 text-[#B6A4FF]"
+                                            : "bg-white/[0.03] text-zinc-500 group-hover:bg-white/[0.06] group-hover:text-zinc-200"
+                                        }`}
+                                >
+                                    <Icon size={18} />
+                                </div>
 
-                            <Icon size={20} />
-
-                            <span className="font-medium">
-                                {item.name}
-                            </span>
-                        </button>
-                    );
-                })}
-
+                                <span className="text-[15px] font-medium tracking-wide">
+                                    {item.name}
+                                </span>
+                            </button>
+                        );
+                    })}
+                </div>
             </nav>
 
-            {/* Footer */}
-            <div className="border-t border-zinc-800 p-4">
+            <div className="relative border-t border-white/10 p-5">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <p className="text-sm font-semibold text-white">
+                                QuantView
+                            </p>
 
-                <p className="text-xs text-zinc-500">
-                    QuantView v1.0
-                </p>
+                            <p className="mt-1 text-xs text-zinc-500">
+                                Version 1.0
+                            </p>
+                        </div>
 
+                        <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]" />
+                    </div>
+                </div>
             </div>
-
         </aside>
     );
 };
