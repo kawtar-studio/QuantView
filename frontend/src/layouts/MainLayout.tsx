@@ -5,6 +5,7 @@ import MarketOverviewChart from "../components/dashboard/MarketOverviewChart";
 import MarketBreadthChart from "../components/dashboard/MarketBreadthChart";
 import WatchlistPanel from "../components/dashboard/WatchlistPanel";
 import NewsPanel from "../components/dashboard/NewsPanel";
+import TopMovers from "../components/dashboard/TopMovers";
 
 const MainLayout = () => {
     return (
@@ -49,23 +50,32 @@ const MainLayout = () => {
 
                     </div>
 
-                    {/* Dashboard */}
+                    {/* Dashboard Layout */}
                     <div className="mt-8 grid grid-cols-12 gap-6">
 
-                        {/* Left */}
+                        {/* Left Side */}
                         <div className="col-span-8">
                             <MarketOverviewChart />
                         </div>
 
-                        {/* Right */}
+                        {/* Right Side */}
                         <div className="col-span-4 space-y-6">
-
                             <MarketBreadthChart />
-
                             <WatchlistPanel />
-
                             <NewsPanel />
+                        </div>
 
+                    </div>
+
+                    {/* Bottom Section */}
+                    <div className="mt-8 grid grid-cols-12 gap-6">
+
+                        <div className="col-span-6">
+                            <TopMovers />
+                        </div>
+
+                        <div className="col-span-6 rounded-2xl border border-dashed border-zinc-700 p-8 text-center text-zinc-500">
+                            Portfolio Overview (Coming Next)
                         </div>
 
                     </div>
