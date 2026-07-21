@@ -7,6 +7,7 @@ import WatchlistPanel from "../components/dashboard/WatchlistPanel";
 import NewsPanel from "../components/dashboard/NewsPanel";
 import TopMovers from "../components/dashboard/TopMovers";
 import PortfolioOverview from "../components/dashboard/PortfolioOverview";
+import EconomicCalendar from "../components/dashboard/EconomicCalendar";
 
 const MainLayout = () => {
     return (
@@ -65,7 +66,7 @@ const MainLayout = () => {
                             </div>
                         </section>
 
-                        <section className="grid grid-cols-12 gap-6 pb-8">
+                        <section className="grid grid-cols-12 gap-6">
                             <div className="col-span-5">
                                 <TopMovers />
                             </div>
@@ -73,6 +74,10 @@ const MainLayout = () => {
                             <div className="col-span-7">
                                 <PortfolioOverview />
                             </div>
+                        </section>
+
+                        <section className="pb-8">
+                            <EconomicCalendar />
                         </section>
                     </div>
                 </main>
