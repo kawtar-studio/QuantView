@@ -6,6 +6,7 @@ import MarketBreadthChart from "../components/dashboard/MarketBreadthChart";
 import WatchlistPanel from "../components/dashboard/WatchlistPanel";
 import NewsPanel from "../components/dashboard/NewsPanel";
 import TopMovers from "../components/dashboard/TopMovers";
+import PortfolioOverview from "../components/dashboard/PortfolioOverview";
 
 const MainLayout = () => {
     return (
@@ -17,7 +18,6 @@ const MainLayout = () => {
 
                 <main className="flex-1 overflow-y-auto p-8">
 
-                    {/* Top Market Cards */}
                     <div className="grid grid-cols-4 gap-6">
 
                         <MarketCard
@@ -50,15 +50,12 @@ const MainLayout = () => {
 
                     </div>
 
-                    {/* Dashboard Layout */}
                     <div className="mt-8 grid grid-cols-12 gap-6">
 
-                        {/* Left Side */}
                         <div className="col-span-8">
                             <MarketOverviewChart />
                         </div>
 
-                        {/* Right Side */}
                         <div className="col-span-4 space-y-6">
                             <MarketBreadthChart />
                             <WatchlistPanel />
@@ -67,15 +64,14 @@ const MainLayout = () => {
 
                     </div>
 
-                    {/* Bottom Section */}
                     <div className="mt-8 grid grid-cols-12 gap-6">
 
-                        <div className="col-span-6">
+                        <div className="col-span-5">
                             <TopMovers />
                         </div>
 
-                        <div className="col-span-6 rounded-2xl border border-dashed border-zinc-700 p-8 text-center text-zinc-500">
-                            Portfolio Overview (Coming Next)
+                        <div className="col-span-7">
+                            <PortfolioOverview />
                         </div>
 
                     </div>
