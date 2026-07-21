@@ -2,6 +2,7 @@ import Sidebar from "../components/layout/Sidebar";
 import Header from "../components/dashboard/Header";
 import MarketCard from "../components/dashboard/MarketCard";
 import MarketOverviewChart from "../components/dashboard/MarketOverviewChart";
+import MarketBreadthChart from "../components/dashboard/MarketBreadthChart";
 
 const MainLayout = () => {
     return (
@@ -13,7 +14,7 @@ const MainLayout = () => {
 
                 <main className="flex-1 overflow-auto p-8">
 
-                    {/* Top Market Cards */}
+                    {/* Market Cards */}
                     <div className="grid grid-cols-4 gap-6">
 
                         <MarketCard
@@ -46,24 +47,14 @@ const MainLayout = () => {
 
                     </div>
 
-                    {/* Main Dashboard Content */}
+                    {/* Main Dashboard */}
                     <div className="mt-8 grid grid-cols-3 gap-6">
 
-                        {/* Chart */}
                         <div className="col-span-2">
                             <MarketOverviewChart />
                         </div>
 
-                        {/* Placeholder for Market Breadth */}
-                        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 shadow-lg">
-                            <h2 className="text-xl font-semibold text-white">
-                                Market Breadth
-                            </h2>
-
-                            <div className="mt-6 flex h-80 items-center justify-center rounded-xl border border-dashed border-zinc-700 text-zinc-500">
-                                Donut Chart Coming Next
-                            </div>
-                        </div>
+                        <MarketBreadthChart />
 
                     </div>
 
